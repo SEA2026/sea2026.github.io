@@ -74,8 +74,8 @@ const totalPages = Math.ceil(page.total / page.size)
           previousPage={page.url.prev ? page.url.prev : null}
           nextPage={page.url.next ? page.url.next : null}
           lastPage={page.url.next ? `/portfolio/${Math.ceil(page.total / page.size)}` : null}
-          currentPage={`${page.currentPage}`}
-          totalPages={`${Math.ceil(page.total / page.size)}`}
+          currentPage={currentPage}
+          totalPages={totalPages}
           ariaLabel="Portfolio pagination"
         />
       </div>

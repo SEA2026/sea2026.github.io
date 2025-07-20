@@ -1,1 +1,7 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.darkmode, .darkmode *));
+
+@theme {
+  --color-muted: light-dark(var(--color-neutral-600), var(--color-neutral-400));
+}

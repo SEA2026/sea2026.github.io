@@ -1,0 +1,39 @@
+---
+import ExternalLink from './ExternalLink.astro'
+
+/**
+ * PersonAffilChair Component
+ *
+ * @description PersonAffilChair description
+ */
+interface Props {
+  /**
+   * Name of the person
+   */
+  name: string
+
+  /**
+   * Affiliation of the person
+   */
+  affiliation?: string
+
+  /**
+   * The URL to link to
+   */
+  href?: string
+
+  /**
+   * Is the person a chair?
+   */
+  chair?: boolean
+}
+
+const { name, affiliation, href, chair = false } = Astro.props
+---
+
+<div>
+  {href ? <ExternalLink href={href}>{name}</ExternalLink> : name}{
+    chair && <span class="ml-1.5 text-[0.875em] font-bold">(chair)</span>
+  }
+</div>
+{affiliation && <span class="text-muted text-[0.875em]">{affiliation}</span>}

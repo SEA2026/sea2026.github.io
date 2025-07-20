@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import { Picture } from 'astro:assets'
 
 /**
  * Hero Component
@@ -11,10 +11,11 @@ interface Props {
   /**
    * The source URL for the image
    */
-  src?: string
+  src?: ImageMetadata
 }
 
-const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
+import nyhavn from '../assets/images/nyhavn-copenhagen.jpg'
+const { src = nyhavn }: Props = Astro.props
 ---
 
 <section class="hero my-24">
@@ -22,24 +23,47 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
         <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-gradient">Accessible</span> Starter for Astro</slot>
+          <slot
+            ><span class="text-gradient">SEA 2026</span>
+            <div class="text-xl">
+              24<span class="align-super text-sm">th</span> Symposium on Experimental Algorithms
+            </div>
+            <div class="text-xl">June 22—24, 2026</div>
+          </slot>
         </h1>
-        <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a class="button has-icon" href="https://github.com/incluud/accessible-astro-starter">
+        <!-- <div class="flex flex-col gap-3 min-[500px]:flex-row">
+          <a class="button has-icon" href="/call">
             <Icon name="lucide:star" />
-            Star on GitHub
+            Call for papers
           </a>
-          <a class="button has-icon color-secondary" href="https://accessible-astro.incluud.dev/">
+          <a class="button has-icon color-secondary" href="/dates">
             <Icon name="lucide:bookmark" />
-            Read the docs
+            Dates
           </a>
-        </div>
+        </div> -->
       </div>
-      <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
+      <Picture
+        class="rounded-lg"
+        loading="eager"
+        width={1600}
+        height={900}
+        densities={[1, 2, 3]}
+        src={src}
+        alt="Photo of Nyhavn"
+      />
+      <!-- <Image class="lightimage" src={"/pexels-pixabay-416024.jpg"} alt="" decoding="async" width={800} height={600} loading="eager" /> -->
     </div>
   </div>
 </section>
 
+<!-- <style is:global>
+  .darkmode .lightimage {
+    display: none;
+  }
+  .darkmode .darkimage {
+    display: block;
+  }
+</style> -->
 <style lang="scss">
   h1 {
     text-wrap: unset;

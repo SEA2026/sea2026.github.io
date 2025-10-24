@@ -34,14 +34,14 @@
     "url": "https://github.com/incluud/accessible-astro-starter/issues"
   },
   "devDependencies": {
-    "@astrojs/mdx": "4.3.6",
+    "@astrojs/mdx": "4.3.8",
     "@astrojs/partytown": "^2.1.4",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.37.0",
     "@iconify-json/lucide": "^1.2.69",
     "@typescript-eslint/eslint-plugin": "^8.46.0",
     "@typescript-eslint/parser": "^8.46.0",
-    "astro": "5.14.1",
+    "astro": "5.15.1",
     "astro-compress": "^2.3.8",
     "astro-eslint-parser": "^1.2.2",
     "astro-icon": "^1.1.5",

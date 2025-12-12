@@ -20,8 +20,10 @@ import ExternalLink from '@components/ExternalLink.astro'
           <ul class="flex flex-col gap-0">
             <li>
               <div>January 23, 2026</div>
-            <ExternalLink class="block pb-6" href="https://easychair.org/conferences/?conf=sea2026">Submit via easychair</ExternalLink></li>
-            <h3 class='text-2xl font-bold'>Notification</h3><div>March 31, 2026</div>
+              <ExternalLink class="block pb-6" href="https://easychair.org/conferences/?conf=sea2026"
+                >Submit via easychair</ExternalLink>
+            </li>
+            <h3 class="text-2xl font-bold">Notification</h3><div>March 31, 2026</div>
             <!-- <li>Camera-ready version: <b>April 28, 2026</b></li> -->
           </ul>
         </Feature>
@@ -29,9 +31,19 @@ import ExternalLink from '@components/ExternalLink.astro'
           >SEA aims to attract papers concerned with the role of experimentation and algorithm engineering techniques in
           the design and evaluation of algorithms and data structures. <a href="/cfp">Read more..</a></Feature
         >
-        <!-- <Feature icon="lucide:users-round" title="Local Organizers">
-          
-        </Feature> -->
+        <Feature icon="lucide:users-round" title="Related conferences">
+          in the <strong>same</strong> location!
+          <ul class="pt-4">
+            <li>
+              <ExternalLink href="https://cpm2026.compute.dtu.dk/">CPM 2026</ExternalLink> (June 15-17)
+              <div class="text-muted text-sm">Combinatorial Pattern Matching</div>
+            </li>
+            <li>
+              <ExternalLink href="https://swat2026.compute.dtu.dk/">SWAT 2026</ExternalLink> (June 17-19)
+              <div class="text-muted text-sm">Scandinavian Symposium on Algorithm Theory</div>
+            </li>
+          </ul>
+        </Feature>
         <Feature icon="lucide:map-pinned" title="Location">
           IDA Conference center<br />
           Kalvebod Brygge 31<br />
@@ -94,7 +106,6 @@ import ExternalLink from '@components/ExternalLink.astro'
       <li><PersonAffilChair name="Stefan Walzer" affiliation="Karlsruhe Institute of Technology" /></li>
       <li><PersonAffilChair name="Helen Xu" affiliation="Georgia Tech" /></li>
       <li><PersonAffilChair name="Isabella Ziccardi" affiliation="Bocconi University" /></li>
-
     </ul>
   </ContentMedia>
   <!-- <ContentMedia imgSrc="/accessible-components.webp" reverseImg>

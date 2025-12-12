@@ -7,6 +7,7 @@ import PersonAffilChair from '@components/PersonAffilChair.astro'
 
 import expertsImg from '../assets/images/experts-in-Copenhagen.png'
 import localOrganizersImg from '../assets/images/pexels-gije-16140941.jpg'
+import ExternalLink from '@components/ExternalLink.astro'
 ---
 
 <DefaultLayout title="Home">
@@ -15,10 +16,12 @@ import localOrganizersImg from '../assets/images/pexels-gije-16140941.jpg'
     <div class="container">
       <h2 class="mb-8">Information</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="lucide:calendar-days" title="Important dates">
+        <Feature icon="lucide:calendar-days" title="Submission deadline">
           <ul class="flex flex-col gap-0">
-            <li>Submission: <b>January 23, 2026</b></li>
-            <li>Notification: <b>March 31, 2026</b></li>
+            <li>
+              <div>January 23, 2026</div>
+            <ExternalLink class="block pb-6" href="https://easychair.org/conferences/?conf=sea2026">Submit via easychair</ExternalLink></li>
+            <h3 class='text-2xl font-bold'>Notification</h3><div>March 31, 2026</div>
             <!-- <li>Camera-ready version: <b>April 28, 2026</b></li> -->
           </ul>
         </Feature>

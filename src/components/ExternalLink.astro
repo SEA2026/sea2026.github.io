@@ -22,7 +22,7 @@ const { class: className, href } = Astro.props
 
 <a href={href} class:list={[className, 'external-link']} target="_blank" rel="noopener noreferrer">
   <slot />
-  <Icon name="lucide:external-link" size="20" />
+  <Icon name="lucide:external-link" size={20} />
   <span class="sr-only">Opens in a new tab</span>
 </a>
 

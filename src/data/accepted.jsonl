@@ -1,0 +1,28 @@
+{"title": "A Practical Algorithm for (Geometry-Aware) Interleavings between Merge Trees", "authors": ["Thijs Beurskens", "Emil Toftegaard Gæde", "Tim Ophelders", "Willem Sonke", "Bettina Speckmann", "Kevin Verbeek"]}
+{"title": "Adaptive Subproblem Selection in Benders Decomposition for Survivable Network Design Problems", "authors": ["Tim Donkiewicz"]}
+{"title": "An Empirical Analysis of Approximation Algorithms for the Unweighted Tree Augmentation Problem", "authors": ["Luke Hawranick", "Matthew Williamson", "Jacob Restanio", "K. Subramani", "Cody Klingler"]}
+{"title": "Approximation Algorithms for Budget Splitting in Multi-Channel Influence Maximization", "authors": ["Dildar Ali", "Ansh Jasrotia", "Abishek Salaria", "Suman Banerjee"]}
+{"title": "Bounding the Average Move Structure Query for Faster and Smaller RLBWT Permutations", "authors": ["Nathaniel Brown", "Benjamin Langmead"]}
+{"title": "Breaking 2-Cores for Invertible Bloom Lookup Tables by Structure Prediction", "authors": ["Vojtěch Gaďurek", "Pavel Veselý"]}
+{"title": "BuffCut: Prioritized Buffered Streaming Graph Partitioning", "authors": ["Adil Chhabra", "Christian Schulz", "Marcelo Fonseca Faraj", "Linus Baumgärtner"]}
+{"title": "Compressing Highly Repetitive Binary Trees with an Application to Range Minimum Queries", "authors": ["Gabriel Carmona", "Filippo Lari"]}
+{"title": "Computational Generation of Substrate-Specific Molecular Cages", "authors": ["Noé Demange", "Yann Strozecki", "Sandrine Vial"]}
+{"title": "Cycle Basis Algorithms for Reducing Maximum Edge Participation", "authors": ["Fan Wang", "Sandy Irani"]}
+{"title": "DeltaSort: Incremental sorting of arrays with known updates", "authors": ["Shubham Dwivedi"]}
+{"title": "Different Scales of Randomness: Empirical Mixing Times of the Edge Switching and Curveball", "authors": ["Ryan O Connor", "Deepak Ajwani", "Melvin Kallmayer", "Alexander Leonhardt", "Ulrich Meyer", "Manuel Penschuck"]}
+{"title": "Efficient Large-Scale Text Precompression via Approximate LZ77 Parsings", "authors": ["Patrick Dinklage"]}
+{"title": "Engineering Algorithms for Dynamic Greedy Set Cover", "authors": ["Amitai Uzrad"]}
+{"title": "Engineering Fully Dynamic Convex Hulls", "authors": ["Ivor van der Hoog", "Henrik Reinstädtler", "Eva Rotenberg"]}
+{"title": "Engineering Learned Heuristics to Improve Clustering for Multilevel Graph Partitioning", "authors": ["Simeon Schrape", "Nikolai Maas", "Kenneth Langedal", "Daniel Seemaier"]}
+{"title": "Exploiting Multi-Core Parallelism in Blockchain Validation and Construction", "authors": ["Arivarasan Karmegam", "Lucianna Kiffer", "Antonio Fernández Anta"]}
+{"title": "Fast Select Queries using Hybrid Bitvectors", "authors": ["Eric Chiu", "Dominik Kempa"]}
+{"title": "From Relative Compression to Hierarchical Compression", "authors": ["Philip Bille", "Inge Li Gørtz", "Máximo Pérez López"]}
+{"title": "General Multiplicative Spanners in Practice", "authors": ["Fritz Bökler", "Markus Chimani", "Henning Jasper"]}
+{"title": "Global Polyline Simplification under the Frechet Distance: Theory and Practice", "authors": ["Christian Abdullahad", "Sabine Storandt"]}
+{"title": "Integer programming models for the median of a 0-1 string set under Levenshtein distance", "authors": ["Claudio Arbib", "Andrea D'Ascenzo", "Oya Ekin Karasan", "Andrea Pizzuti"]}
+{"title": "k-Hole Separation in PEO‑Based ILP Treewidth Formulation", "authors": ["Andrea D'Ascenzo"]}
+{"title": "Practical Parallel Block Tree Construction", "authors": ["Robert Clausecker", "Florian Kurpicz", "Etienne Palanga"]}
+{"title": "QuadRank: Engineering a High Throughput Rank", "authors": ["Ragnar Groot Koerkamp"]}
+{"title": "The dual-path fixing strategy and its application to the set-covering problem", "authors": ["Marcia Fampa", "Jon Lee", "Paulo Michel F. Yamagishi"]}
+{"title": "Wavelet Forests Revisited", "authors": ["Eric Chiu", "Dominik Kempa"]}
+{"title": "ZOR filters: fast and smaller than fuse filters", "authors": ["Antoine Limasset"]}

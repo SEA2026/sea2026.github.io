@@ -1,0 +1,28 @@
+1. A Practical Algorithm for (Geometry-Aware) Interleavings between Merge Trees; Thijs Beurskens, Emil Toftegaard Gæde, Tim Ophelders, Willem Sonke, Bettina Speckmann and Kevin Verbeek
+2. Adaptive Subproblem Selection in Benders Decomposition for Survivable Network Design Problems; Tim Donkiewicz
+3. An Empirical Analysis of Approximation Algorithms for the Unweighted Tree Augmentation Problem; Luke Hawranick, Matthew Williamson, Jacob Restanio, K. Subramani and Cody Klingler
+4. Approximation Algorithms for Budget Splitting in Multi-Channel Influence Maximization; Dildar Ali, Ansh Jasrotia, Abishek Salaria and Suman Banerjee
+5. Bounding the Average Move Structure Query for Faster and Smaller RLBWT Permutations; Nathaniel Brown and Benjamin Langmead
+6. Breaking 2-Cores for Invertible Bloom Lookup Tables by Structure Prediction; Vojtěch Gaďurek and Pavel Veselý
+7. BuffCut: Prioritized Buffered Streaming Graph Partitioning; Adil Chhabra, Christian Schulz, Marcelo Fonseca Faraj and Linus Baumgärtner
+8. Compressing Highly Repetitive Binary Trees with an Application to Range Minimum Queries; Gabriel Carmona and Filippo Lari
+9. Computational Generation of Substrate-Specific Molecular Cages; Noé Demange, Yann Strozecki and Sandrine Vial
+10. Cycle Basis Algorithms for Reducing Maximum Edge Participation; Fan Wang and Sandy Irani
+11. DeltaSort: Incremental sorting of arrays with known updates; Shubham Dwivedi
+12. Different Scales of Randomness: Empirical Mixing Times of the Edge Switching and Curveball; Ryan O Connor, Deepak Ajwani, Melvin Kallmayer, Alexander Leonhardt, Ulrich Meyer and Manuel Penschuck
+13. Efficient Large-Scale Text Precompression via Approximate LZ77 Parsings; Patrick Dinklage
+14. Engineering Algorithms for Dynamic Greedy Set Cover; Amitai Uzrad
+15. Engineering Fully Dynamic Convex Hulls; Ivor van der Hoog, Henrik Reinstädtler and Eva Rotenberg
+16. Engineering Learned Heuristics to Improve Clustering for Multilevel Graph Partitioning; Simeon Schrape, Nikolai Maas, Kenneth Langedal and Daniel Seemaier
+17. Exploiting Multi-Core Parallelism in Blockchain Validation and Construction; Arivarasan Karmegam, Lucianna Kiffer and Antonio Fernández Anta
+18. Fast Select Queries using Hybrid Bitvectors; Eric Chiu and Dominik Kempa
+19. From Relative Compression to Hierarchical Compression; Philip Bille, Inge Li Gørtz and Máximo Pérez López
+20. General Multiplicative Spanners in Practice; Fritz Bökler, Markus Chimani and Henning Jasper
+21. Global Polyline Simplification under the Frechet Distance: Theory and Practice; Christian Abdullahad and Sabine Storandt
+22. Integer programming models for the median of a 0-1 string set under Levenshtein distance; Claudio Arbib, Andrea D'Ascenzo, Oya Ekin Karasan and Andrea Pizzuti
+23. k-Hole Separation in PEO‑Based ILP Treewidth Formulation; Andrea D'Ascenzo
+24. Practical Parallel Block Tree Construction; Robert Clausecker, Florian Kurpicz and Etienne Palanga
+25. QuadRank: Engineering a High Throughput Rank; Ragnar Groot Koerkamp
+26. The dual-path fixing strategy and its application to the set-covering problem; Marcia Fampa, Jon Lee and Paulo Michel F. Yamagishi
+27. Wavelet Forests Revisited; Eric Chiu and Dominik Kempa
+28. ZOR filters: fast and smaller than fuse filters; Antoine Limasset

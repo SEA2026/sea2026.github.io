@@ -16,25 +16,21 @@ import ExternalLink from '@components/ExternalLink.astro'
     <div class="container">
       <h2 class="mb-8">Information</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="lucide:calendar-days" title="Submission deadline">
+        <Feature icon="lucide:calendar-days" title="Important dates">
           <ul class="flex flex-col gap-0">
-            <li>
-              <div><s>January 23, 2026</s><br />February 2, 2026 (AoE)</div>
-              <ExternalLink class="block pb-6" href="https://easychair.org/conferences/?conf=sea2026"
-                >Submit via easychair</ExternalLink
-              >
-            </li>
-            <h3 class="text-2xl font-bold">Notification</h3><div>March 31, 2026</div>
-            <!-- <li>Camera-ready version: <b>April 28, 2026</b></li> -->
+            <li><strong>Camera-ready version:</strong><br />April 14, 2026</li><br />
+            <li><strong>Notification:</strong> March 31, 2026</li>
+            <li><strong>Submission:</strong> <s>January 23, 2026</s><br />February 2, 2026 (AoE)</li>
           </ul>
         </Feature>
-        <Feature icon="lucide:star" title="Call for Papers"
-          >SEA aims to attract papers concerned with the role of experimentation and algorithm engineering techniques in
-          the design and evaluation of algorithms and data structures. <a href="/cfp">Read more..</a></Feature
+        <Feature icon="lucide:star" title="Accepted papers"
+          >We accepted <a href="/accepted">28 papers</a> and are looking forward to an excellent program!</Feature
+        >
+        <Feature icon="lucide:user-plus" title="Registration"
+          >Coming soon. The conference fee will include lunches and a dinner. Make sure to book a hotel early!!</Feature
         >
         <Feature icon="lucide:users-round" title="Related conferences">
-          <p>same location, 
-          one week earlier!</p>
+          <p>same location, one week earlier!</p>
           <ul class="pt-4">
             <li>
               <ExternalLink class="mr-2" href="https://cpm2026.compute.dtu.dk/">CPM 2026</ExternalLink>
@@ -54,6 +50,10 @@ import ExternalLink from '@components/ExternalLink.astro'
           1560 København<br />
           Denmark
         </Feature>
+        <Feature icon="lucide:phone" title="Call for Papers"
+          >SEA aims to attract papers concerned with the role of experimentation and algorithm engineering techniques in
+          the design and evaluation of algorithms and data structures. <a href="/cfp">Read more..</a></Feature
+        >
       </div>
     </div>
   </section>

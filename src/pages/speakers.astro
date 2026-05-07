@@ -1,0 +1,202 @@
+---
+import fs from 'node:fs/promises'
+import { Image } from 'astro:assets'
+
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+
+import speakerSebastian from '../assets/images/speaker_sebastian.jpg'
+import speakerInge from '../assets/images/speaker_inge.jpeg'
+
+const content = await fs.readFile('./src/data/speakers.md', 'utf-8')
+
+const imageMap = {
+  'speaker_sebastian.jpg': speakerSebastian,
+  'speaker_inge.jpeg': speakerInge,
+}
+
+type Speaker = {
+  name: string
+  bio: string
+  talk: string
+  abstract: string
+  picture?: keyof typeof imageMap
+}
+
+const speakers = content
+  .trim()
+  .split(/^# /m)
+  .filter(Boolean)
+  .map((section) => {
+    const normalized = `# ${section}`.trim()
+    const lines = normalized.split('\n')
+    const name = lines[0].replace(/^# /, '').trim()
+    const body = lines.slice(1).join('\n').trim()
+
+    const getField = (label: string, nextLabel: string[]) => {
+      const nextPattern = nextLabel.map((item) => `${item}:`).join('|')
+      const match = body.match(new RegExp(`${label}:\\s*([\\s\\S]*?)(?=\\n(?:${nextPattern})|$)`))
+      return match?.[1].trim() ?? ''
+    }
+
+    const pictureMatch = body.match(/Picture:\s*!\[[^\]]*\]\(([^)]+)\)/)
+    const pictureName = pictureMatch?.[1].split('/').pop()
+
+    return {
+      name,
+      bio: getField('Bio', ['Talk', 'Abstract', 'Picture']),
+      talk: getField('Talk', ['Abstract', 'Picture']),
+      abstract: getField('Abstract', ['Picture']),
+      picture: pictureName && pictureName in imageMap ? (pictureName as keyof typeof imageMap) : undefined,
+    } satisfies Speaker
+  })
+---
+
+<DefaultLayout title="Invited speakers">
+  <section class="mb-20">
+    <div class="container flex flex-col gap-6">
+      <div class="max-w-3xl">
+        <h1>Invited speakers</h1>
+        <p class="text-xl text-muted">
+          SEA 2026 will feature invited talks by researchers spanning algorithms, data structures, compression, and
+          pattern matching.
+        </p>
+      </div>
+
+      <div class="speaker-list">
+        {
+          speakers.map((speaker) => {
+            const image = speaker.picture ? imageMap[speaker.picture] : undefined
+            const hasAbstract = speaker.abstract && speaker.abstract !== 'TBA'
+
+            return (
+              <article class="speaker-card">
+                <div class="speaker-media">
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt={`Portrait of ${speaker.name}`}
+                      widths={[600, 900]}
+                      sizes="(max-width: 960px) 100vw, 38vw"
+                      class="speaker-image"
+                    />
+                  ) : (
+                    <div class="speaker-placeholder" aria-hidden="true">
+                      Photo coming soon
+                    </div>
+                  )}
+                </div>
+
+                <div class="speaker-content">
+                  <div class="speaker-intro">
+                    <h2>{speaker.name}</h2>
+                    <p>{speaker.bio || 'Biography to be announced.'}</p>
+                  </div>
+
+                  <div class="speaker-details">
+                    <section class="speaker-detail-panel speaker-talk">
+                      <h3>Talk</h3>
+                      <p>{speaker.talk || 'To be announced.'}</p>
+                    </section>
+
+                    <section class="speaker-detail-panel">
+                      <h3>Abstract</h3>
+                      {hasAbstract ? speaker.abstract.split(/\n\s*\n/).map((paragraph) => <p>{paragraph.replaceAll('\n', ' ')}</p>) : <p>To be announced.</p>}
+                    </section>
+                  </div>
+                </div>
+              </article>
+            )
+          })
+        }
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  .speaker-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .speaker-card {
+    display: grid;
+    gap: 1.75rem;
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-l);
+    background: color-mix(in srgb, var(--background-color) 95%, var(--foreground-color) 5%);
+    padding: 1.5rem;
+  }
+
+  .speaker-media {
+    align-self: start;
+  }
+
+  .speaker-image {
+    border-radius: var(--radius-m);
+    width: 100%;
+    height: auto;
+    max-height: 32rem;
+    object-fit: contain;
+    object-position: center top;
+    background: color-mix(in srgb, var(--background-color) 90%, var(--foreground-color) 10%);
+  }
+
+  .speaker-placeholder {
+    display: grid;
+    place-items: center;
+    border: 1px dashed var(--border-color-subtle);
+    background: color-mix(in srgb, var(--background-color) 85%, var(--foreground-color) 15%);
+    color: var(--text-color-muted, var(--foreground-color));
+    min-height: 18rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .speaker-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .speaker-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .speaker-details {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .speaker-detail-panel {
+    border-radius: var(--radius-m);
+    background: color-mix(in srgb, var(--background-color) 88%, var(--foreground-color) 12%);
+    padding: 1rem 1.1rem;
+  }
+
+  .speaker-talk {
+    border-inline-start: 4px solid var(--link-color);
+  }
+
+  .speaker-details h3 {
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .speaker-details p + p {
+    margin-top: 0.9rem;
+  }
+
+  @media (min-width: 960px) {
+    .speaker-card {
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.35fr);
+      align-items: start;
+      padding: 2rem;
+    }
+  }
+</style>

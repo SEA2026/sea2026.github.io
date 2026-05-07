@@ -1,5 +1,7 @@
 # Sebastian Wild
 
+Affiliation: Philipps University of Marburg · University of Liverpool
+
 Bio: Sebastian Wild leads the Algorithms Group in the Department of Mathematics and Computer Science at Philipps University of Marburg and is Senior Lecturer at the University of Liverpool, UK.  His research focuses on memory-efficient data structures and algorithm engineering.  He is particularly well known for his work on practical sorting algorithms such as Powersort, which is used to sort lists in Python.  Before coming to Marburg, Sebastian was a full-time at the University of Liverpool, UK, and prior to that, a postdoc at the University of Waterloo, Canada. His doctoral thesis on the analysis of multiway quicksort at the TU Kaiserslautern was awarded the GI Dissertation Prize.
 
 Talk: TBA
@@ -9,6 +11,8 @@ Abstract: TBA
 Picture: ![alt text](../assets/images/speaker_sebastian.jpg)
 
 # Inge Li Gørtz
+
+Affiliation: DTU Compute
 
 Bio: Inge Li Gørtz is a professor in the Algorithms, Logic, and Graphs section at DTU Compute. Her research focuses on design and analysis of algorithms and data structures, especially combinatorial pattern matching including regular expression matching and advanced string indexing, data structures on and searching in compressed data, approximation algorithms, and data structures.
 
@@ -31,6 +35,8 @@ Based on joint work with Philip Bille, Max Rishøj Pedersen, Máximo Pérez Lóp
 Picture: ![alt text](../assets/images/speaker_inge.jpeg)
 
 # Charalampos E. Tsourakakis
+
+Affiliation: University of Crete
 
 Bio: TBA
 

@@ -17,10 +17,23 @@ const imageMap = {
 
 type Speaker = {
   name: string
+  affiliation: string
   bio: string
   talk: string
   abstract: string
   picture?: keyof typeof imageMap
+}
+
+function toSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/ø/g, 'o')
+    .replace(/å/g, 'a')
+    .replace(/æ/g, 'ae')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 const speakers = content
@@ -44,6 +57,7 @@ const speakers = content
 
     return {
       name,
+      affiliation: getField('Affiliation', ['Bio', 'Talk', 'Abstract', 'Picture']),
       bio: getField('Bio', ['Talk', 'Abstract', 'Picture']),
       talk: getField('Talk', ['Abstract', 'Picture']),
       abstract: getField('Abstract', ['Picture']),
@@ -63,6 +77,14 @@ const speakers = content
         </p>
       </div>
 
+      <nav class="speaker-jump-nav" aria-label="Jump to speaker">
+        <ul role="list">
+          {speakers.map((s) => (
+            <li><a href={`#speaker-${toSlug(s.name)}`}>{s.name}</a></li>
+          ))}
+        </ul>
+      </nav>
+
       <div class="speaker-list">
         {
           speakers.map((speaker) => {
@@ -70,7 +92,7 @@ const speakers = content
             const hasAbstract = speaker.abstract && speaker.abstract !== 'TBA'
 
             return (
-              <article class="speaker-card">
+              <article class="speaker-card" id={`speaker-${toSlug(speaker.name)}`}>
                 <div class={`speaker-media${image ? '' : ' speaker-media--placeholder'}`} aria-hidden={image ? undefined : 'true'}>
                   {image ? (
                     <Image
@@ -88,6 +110,9 @@ const speakers = content
                 <div class="speaker-content">
                   <div class="speaker-intro">
                     <h2>{speaker.name}</h2>
+                    {speaker.affiliation && speaker.affiliation !== 'TBA' && (
+                      <p class="speaker-affiliation text-muted">{speaker.affiliation}</p>
+                    )}
                     <p>{speaker.bio || 'Biography to be announced.'}</p>
                   </div>
 
@@ -126,6 +151,7 @@ const speakers = content
     border-radius: var(--radius-l);
     background: color-mix(in srgb, var(--background-color) 95%, var(--foreground-color) 5%);
     padding: 1.5rem;
+    scroll-margin-top: var(--space-m);
   }
 
   .speaker-media {
@@ -190,6 +216,25 @@ const speakers = content
 
   .speaker-details p + p {
     margin-top: 0.9rem;
+  }
+
+  .speaker-jump-nav {
+    margin-bottom: 1.5rem;
+  }
+
+  .speaker-jump-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .speaker-affiliation {
+    margin-top: -0.25rem;
+    margin-bottom: 0;
+    font-size: 0.95rem;
   }
 
   @media (min-width: 960px) {

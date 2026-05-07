@@ -1,0 +1,150 @@
+---
+interface Props {
+  content: string
+  previewLines?: number
+}
+
+const { content, previewLines = 3 } = Astro.props
+
+const paragraphs = content.split(/\n\s*\n/).map((p) => p.replaceAll('\n', ' '))
+const hasMore = paragraphs.length > previewLines
+const id = crypto.getRandomValues(new Uint8Array(4))
+  .reduce((s, b) => s + b.toString(16).padStart(2, '0'), '')
+---
+
+<div class="collapsible-abstract">
+  <div
+    class={`abstract-visible-text${hasMore ? ' has-more' : ''}`}
+    data-toggle-id={hasMore ? `abstract-hidden-${id}` : undefined}
+  >
+    {paragraphs.slice(0, previewLines).map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+  {hasMore && (
+    <div id={`abstract-hidden-${id}`} class="abstract-hidden-content">
+      {paragraphs.slice(previewLines).map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    <button
+      class="abstract-toggle"
+      data-toggle-id={`abstract-hidden-${id}`}
+      aria-expanded="false"
+      aria-controls={`abstract-hidden-${id}`}
+    >
+      Show full abstract
+    </button>
+  )}
+</div>
+
+<script>
+  const TRANSITION_MS = 300
+
+  function toggle(hiddenId: string, container: Element) {
+    const hidden = document.getElementById(hiddenId)
+    if (!hidden) return
+
+    const visible = container.querySelector('.abstract-visible-text')
+    const button = container.querySelector<HTMLButtonElement>('.abstract-toggle')
+
+    const isExpanded = hidden.classList.contains('expanded')
+    hidden.classList.toggle('expanded')
+
+    if (isExpanded) {
+      // Collapsing: wait for hidden-content transition before snapping the preview back
+      setTimeout(() => visible?.classList.remove('expanded'), TRANSITION_MS)
+    } else {
+      visible?.classList.add('expanded')
+    }
+
+    if (button) {
+      button.setAttribute('aria-expanded', String(!isExpanded))
+      button.textContent = isExpanded ? 'Show full abstract' : 'Hide abstract'
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
+
+    const button = target.closest('.abstract-toggle')
+    if (button) {
+      const id = button.getAttribute('data-toggle-id')
+      const container = button.closest('.collapsible-abstract')
+      if (id && container) toggle(id, container)
+      return
+    }
+
+    const visibleText = target.closest('.abstract-visible-text.has-more')
+    if (visibleText) {
+      const id = visibleText.getAttribute('data-toggle-id')
+      const container = visibleText.closest('.collapsible-abstract')
+      if (id && container) toggle(id, container)
+    }
+  })
+</script>
+
+<style>
+  .collapsible-abstract {
+    width: 100%;
+  }
+
+  .abstract-visible-text p,
+  .abstract-hidden-content p {
+    margin-bottom: 0.9rem;
+  }
+
+  .abstract-visible-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .abstract-visible-text.has-more {
+    max-height: 4.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+  }
+
+  .abstract-visible-text.has-more.expanded {
+    max-height: none;
+    overflow: visible;
+    cursor: default;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .abstract-hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .abstract-hidden-content.expanded {
+    max-height: 2000px;
+    transition: max-height 0.3s ease-in;
+  }
+
+  .abstract-hidden-content p:last-child {
+    margin-bottom: 0.9rem;
+  }
+
+  .abstract-toggle {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .abstract-toggle:hover {
+    text-decoration-color: var(--link-color);
+  }
+
+  .abstract-toggle:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+</style>

@@ -7,12 +7,15 @@ import CollapsibleAbstract from '@components/CollapsibleAbstract.astro'
 
 import speakerSebastian from '../assets/images/speaker_sebastian.jpg'
 import speakerInge from '../assets/images/speaker_inge.jpeg'
+import speakerBabis from '../assets/images/speaker_babis.jpg'
+
 
 const content = await fs.readFile('./src/data/speakers.md', 'utf-8')
 
 const imageMap = {
   'speaker_sebastian.jpg': speakerSebastian,
   'speaker_inge.jpeg': speakerInge,
+  'speaker_babis.jpg': speakerBabis,
 }
 
 type Speaker = {

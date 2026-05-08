@@ -38,10 +38,14 @@ Picture: ![alt text](../assets/images/speaker_inge.jpeg)
 
 Affiliation: University of Crete
 
-Bio: TBA
+Bio: Charalampos (Babis) Tsourakakis is an Associate Professor at the University of Crete and a researcher at the Foundation for Research and Technology – Hellas (FORTH). He earned his Ph.D. from the Algorithms, Combinatorics, and Optimization (ACO) program at Carnegie Mellon University, where he also received an M.Sc. from the Machine Learning Department. He subsequently held postdoctoral positions at Harvard and Brown Universities. He holds a Diploma in Electrical and Computer Engineering from the National Technical University of Athens.
+
+Before joining the University of Crete, he was a faculty member at Boston University and a research affiliate at Harvard University. He has also held research positions at Google Research, Meta/Facebook Research, and RelationalAI.
+
+He has received the IEEE ICDM Test of Time Award and the IEEE ICDM Best Paper Award, and has delivered three tutorials at the ACM SIGKDD Conference on Knowledge Discovery and Data Mining. His research focuses on the design of scalable algorithms and machine learning methods for analyzing large-scale datasets, with an emphasis on knowledge graphs and related applications.
 
 Talk: TBA
 
 Abstract: TBA
 
-Picture: TBA
+Picture: ![alt text](../assets/images/speaker_babis.jpg)

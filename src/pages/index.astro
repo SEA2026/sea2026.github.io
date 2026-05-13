@@ -12,6 +12,17 @@ import ExternalLink from '@components/ExternalLink.astro'
 
 <DefaultLayout title="Home">
   <Hero />
+  <section>
+    <div class="container">
+      <div class="featured">
+        <Feature icon="lucide:user-plus" title="Register for SEA 2026"
+          >Early fee deadline: May 25. <ExternalLink href="https://signup.itu.dk/sea2026/">Register now.</ExternalLink><br />
+          <br />
+          Includes lunches and conference dinner. Book a hotel early.</Feature
+        >
+      </div>
+    </div>
+  </section>
   <section class="my-64">
     <div class="container">
       <h2 class="mb-8">Information</h2>
@@ -29,9 +40,6 @@ import ExternalLink from '@components/ExternalLink.astro'
         <Feature icon="lucide:mic-vocal" title="Invited speakers"
           >Meet our <a href="/speakers">invited speakers</a>: Sebastian Wild, Inge Li Gørtz, and Charalampos E.
           Tsourakakis.</Feature
-        >
-        <Feature icon="lucide:user-plus" title="Registration"
-          >Coming soon. The conference fee will include lunches and a dinner. Make sure to book a hotel early!!</Feature
         >
         <Feature icon="lucide:users-round" title="Related conferences">
           <p>same location, one week earlier!</p>
@@ -138,5 +146,22 @@ import ExternalLink from '@components/ExternalLink.astro'
     border: 1px solid var(--border-color-subtle);
     border-radius: var(--radius-md);
     padding: var(--space-s);
+  }
+
+  .featured :global(.feature::before) {
+    border-color: var(--color-primary-400);
+    border-width: 4px;
+  }
+
+  .featured :global(.feature::after) {
+    background-color: var(--color-secondary-400);
+  }
+
+  .featured :global(.feature h3) {
+    color: var(--link-color);
+  }
+
+  .featured :global(.feature .icon) {
+    color: var(--link-color);
   }
 </style>

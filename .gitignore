@@ -31,3 +31,4 @@ package-lock.json
 
 # cursor rules
 .cursor/rules
+.claude/

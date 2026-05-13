@@ -44,8 +44,12 @@ Before joining the University of Crete, he was a faculty member at Boston Univer
 
 He has received the IEEE ICDM Test of Time Award and the IEEE ICDM Best Paper Award, and has delivered three tutorials at the ACM SIGKDD Conference on Knowledge Discovery and Data Mining. His research focuses on the design of scalable algorithms and machine learning methods for analyzing large-scale datasets, with an emphasis on knowledge graphs and related applications.
 
-Talk: TBA
+Talk: Algorithmic Primitives for Finding Dense Structures in Rich Graph Data
 
-Abstract: TBA
+Abstract: 
+
+The densest subgraph problem is a graph-mining primitive that is both theoretically elegant and practically useful: it is polynomial-time solvable, admits fast greedy approximations, and appears in applications from biology and social networks to fraud detection. But real data quickly exposes a limitation of the classical objective. The most useful subgraph is often not simply the one with maximum average degree. It may need to be near-clique-like, statistically anomalous, or aligned with external side information.
+
+In this talk, I will present a selection of results from a decade of work on dense subgraph discovery, spanning classical formulations, scalable algorithms, and application-driven extensions. Specifically, I will discuss higher-order extensions for near-clique detection, flow-free algorithms for fast dense subgraph extraction, streaming and sampling methods for scalability, and constrained formulations that incorporate real-world requirements such as diversity, risk aversion, exclusion, financial anomaly signals, and opinion information.
 
 Picture: ![alt text](../assets/images/speaker_babis.jpg)

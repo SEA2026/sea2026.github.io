@@ -4,9 +4,12 @@ Affiliation: Philipps University of Marburg · University of Liverpool
 
 Bio: Sebastian Wild leads the Algorithms Group in the Department of Mathematics and Computer Science at Philipps University of Marburg and is Senior Lecturer at the University of Liverpool, UK.  His research focuses on memory-efficient data structures and algorithm engineering.  He is particularly well known for his work on practical sorting algorithms such as Powersort, which is used to sort lists in Python.  Before coming to Marburg, Sebastian was a full-time at the University of Liverpool, UK, and prior to that, a postdoc at the University of Waterloo, Canada. His doctoral thesis on the analysis of multiway quicksort at the TU Kaiserslautern was awarded the GI Dissertation Prize.
 
-Talk: TBA
+Talk: Adaptive Sorting and Searching from Theory to Practice
 
-Abstract: TBA
+Abstract: Adaptive algorithms try to realize cost savings when an input is “easier” than a typical one, while retaining the same worst-case guarantees when it is not.  We will look at several examples of adaptive methods in sorting, selecting, and searching and how they avoid experiencing the worst-case performance for all inputs.
+The first example starts with Lazy Search Trees, which smoothly interpolate between binary search trees and efficient priority queues.  While originally motivated from theoretical data-structure questions, they recently inspired Lazy Partition Heaps, arguably one of the simplest efficient priority queues to teach and with practical potential.
+
+The second case study revisits the turbulent past of Timsort, the run-adaptive mergesort variant used in (the reference implementations of) Python and Java and many other software frameworks, and how Powersort replaced it (in CPython, PyPy, and numpy).  The Powersort merge policy finds nearly optimal merging orders with negligible overhead using a very transparent mechanism, which turned out fruitful for follow-up refinements, such as a recent memory-efficient implementation.
 
 Picture: ![alt text](../assets/images/speaker_sebastian.jpg)
 

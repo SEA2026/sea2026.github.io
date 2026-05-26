@@ -6,8 +6,10 @@ interface Props {
 
 const { content, previewLines = 3 } = Astro.props
 
-const paragraphs = content.split(/\n\s*\n/).map((p) => p.replaceAll('\n', ' '))
-const hasMore = paragraphs.length > previewLines
+const paragraphs = content.split(/\n\s*\n/).map((p) => p.replaceAll('\n', ' ').trim())
+const normalizedContent = paragraphs.join(' ')
+const previewCharacterThreshold = previewLines * 220
+const hasMore = normalizedContent.length > previewCharacterThreshold
 const id = crypto.getRandomValues(new Uint8Array(4))
   .reduce((s, b) => s + b.toString(16).padStart(2, '0'), '')
 ---

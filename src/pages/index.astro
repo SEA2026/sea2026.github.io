@@ -15,11 +15,11 @@ import ExternalLink from '@components/ExternalLink.astro'
   <section>
     <div class="container">
       <div class="featured">
-        <Feature icon="lucide:user-plus" title="Register for SEA 2026"
-          >Early fee deadline: May 25. <ExternalLink href="https://signup.itu.dk/sea2026/">Register now.</ExternalLink><br />
-          <br />
-          Includes lunches and conference dinner. Book a hotel early.</Feature
-        >
+        <Feature icon="lucide:user-plus" title="Register for SEA 2026">
+          The registration fee includes lunches and conference dinner.
+          <br /><ExternalLink href="https://signup.itu.dk/sea2026/">Register now!</ExternalLink>
+          <br />Book a hotel early.
+        </Feature>
       </div>
     </div>
   </section>
@@ -29,7 +29,7 @@ import ExternalLink from '@components/ExternalLink.astro'
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         <Feature icon="lucide:calendar-days" title="Important dates">
           <ul class="flex flex-col gap-0">
-            <li><strong>Camera-ready version:</strong><br />April 14, 2026</li><br />
+            <li><strong>Camera-ready version:</strong><br />April 14, 2026</li>
             <li><strong>Notification:</strong> March 31, 2026</li>
             <li><strong>Submission:</strong> <s>January 23, 2026</s><br />February 2, 2026 (AoE)</li>
           </ul>
@@ -149,8 +149,8 @@ import ExternalLink from '@components/ExternalLink.astro'
   }
 
   .featured :global(.feature::before) {
-    border-color: var(--color-primary-400);
     border-width: 4px;
+    border-color: var(--color-primary-400);
   }
 
   .featured :global(.feature::after) {

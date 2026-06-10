@@ -1,28 +1,28 @@
-{"id":1,"title":"A Practical Algorithm for (Geometry-Aware) Interleavings between Merge Trees","authors":["Thijs Beurskens","Emil Toftegaard Gæde","Tim Ophelders","Willem Sonke","Bettina Speckmann","Kevin Verbeek"]}
-{"id":2,"title":"Adaptive Subproblem Selection in Benders Decomposition for Survivable Network Design Problems","authors":["Tim Donkiewicz"]}
-{"id":3,"title":"An Empirical Analysis of Approximation Algorithms for the Unweighted Tree Augmentation Problem","authors":["Luke Hawranick","Matthew Williamson","Jacob Restanio","K. Subramani","Cody Klingler"]}
-{"id":4,"title":"Approximation Algorithms for Budget Splitting in Multi-Channel Influence Maximization","authors":["Dildar Ali","Ansh Jasrotia","Abishek Salaria","Suman Banerjee"]}
-{"id":5,"title":"Bounding the Average Move Structure Query for Faster and Smaller RLBWT Permutations","authors":["Nathaniel Brown","Benjamin Langmead"]}
-{"id":6,"title":"Breaking 2-Cores for Invertible Bloom Lookup Tables by Structure Prediction","authors":["Vojtěch Gaďurek","Pavel Veselý"]}
-{"id":7,"title":"BuffCut: Prioritized Buffered Streaming Graph Partitioning","authors":["Adil Chhabra","Christian Schulz","Marcelo Fonseca Faraj","Linus Baumgärtner"]}
-{"id":8,"title":"Compressing Highly Repetitive Binary Trees with an Application to Range Minimum Queries","authors":["Gabriel Carmona","Filippo Lari"]}
-{"id":9,"title":"Computational Generation of Substrate-Specific Molecular Cages","authors":["Noé Demange","Yann Strozecki","Sandrine Vial"]}
-{"id":10,"title":"Cycle Basis Algorithms for Reducing Maximum Edge Participation","authors":["Fan Wang","Sandy Irani"]}
-{"id":11,"title":"DeltaSort: Incremental sorting of arrays with known updates","authors":["Shubham Dwivedi"]}
-{"id":12,"title":"Different Scales of Randomness: Empirical Mixing Times of the Edge Switching and Curveball","authors":["Ryan O Connor","Deepak Ajwani","Melvin Kallmayer","Alexander Leonhardt","Ulrich Meyer","Manuel Penschuck"]}
-{"id":13,"title":"Efficient Large-Scale Text Precompression via Approximate LZ77 Parsings","authors":["Patrick Dinklage"]}
-{"id":14,"title":"Engineering Algorithms for Dynamic Greedy Set Cover","authors":["Amitai Uzrad"]}
-{"id":15,"title":"Engineering Fully Dynamic Convex Hulls","authors":["Ivor van der Hoog","Henrik Reinstädtler","Eva Rotenberg"]}
-{"id":16,"title":"Engineering Learned Heuristics to Improve Clustering for Multilevel Graph Partitioning","authors":["Simeon Schrape","Nikolai Maas","Kenneth Langedal","Daniel Seemaier"]}
-{"id":17,"title":"Exploiting Multi-Core Parallelism in Blockchain Validation and Construction","authors":["Arivarasan Karmegam","Lucianna Kiffer","Antonio Fernández Anta"]}
-{"id":18,"title":"Fast Select Queries using Hybrid Bitvectors","authors":["Eric Chiu","Dominik Kempa"]}
-{"id":19,"title":"From Relative Compression to Hierarchical Compression","authors":["Philip Bille","Inge Li Gørtz","Máximo Pérez López"]}
-{"id":20,"title":"General Multiplicative Spanners in Practice","authors":["Fritz Bökler","Markus Chimani","Henning Jasper"]}
-{"id":21,"title":"Global Polyline Simplification under the Frechet Distance: Theory and Practice","authors":["Christian Abdullahad","Sabine Storandt"]}
-{"id":22,"title":"Integer programming models for the median of a 0-1 string set under Levenshtein distance","authors":["Claudio Arbib","Andrea D'Ascenzo","Oya Ekin Karasan","Andrea Pizzuti"]}
-{"id":23,"title":"k-Hole Separation in PEO‑Based ILP Treewidth Formulation","authors":["Andrea D'Ascenzo"]}
-{"id":24,"title":"Practical Parallel Block Tree Construction","authors":["Robert Clausecker","Florian Kurpicz","Etienne Palanga"]}
-{"id":25,"title":"QuadRank: Engineering a High Throughput Rank","authors":["Ragnar Groot Koerkamp"]}
-{"id":26,"title":"The dual-path fixing strategy and its application to the set-covering problem","authors":["Marcia Fampa","Jon Lee","Paulo Michel F. Yamagishi"]}
-{"id":27,"title":"Wavelet Forests Revisited","authors":["Eric Chiu","Dominik Kempa"]}
-{"id":28,"title":"ZOR filters: fast and smaller than fuse filters","authors":["Antoine Limasset"]}
+{"id": 1, "title": "A Practical Algorithm for (Geometry-Aware) Interleavings between Merge Trees", "authors": ["Thijs Beurskens", "Emil Toftegaard Gæde", "Tim Ophelders", "Willem Sonke", "Bettina Speckmann", "Kevin Verbeek"]}
+{"id": 2, "title": "Adaptive Subproblem Selection in Benders Decomposition for Survivable Network Design Problems", "authors": ["Tim Donkiewicz"], "arxiv": "2604.09031", "code": "https://github.com/tidonk/BendersNetworkDesign.jl"}
+{"id": 3, "title": "An Empirical Analysis of Approximation Algorithms for the Unweighted Tree Augmentation Problem", "authors": ["Luke Hawranick", "Matthew Williamson", "Jacob Restanio", "K. Subramani", "Cody Klingler"]}
+{"id": 4, "title": "Approximation Algorithms for Budget Splitting in Multi-Channel Influence Maximization", "authors": ["Dildar Ali", "Ansh Jasrotia", "Abishek Salaria", "Suman Banerjee"], "arxiv": "2604.00796"}
+{"id": 5, "title": "Bounding the Average Move Structure Query for Faster and Smaller RLBWT Permutations", "authors": ["Nathaniel Brown", "Benjamin Langmead"], "arxiv": "2602.11029", "code": "https://github.com/drnatebrown/orbit"}
+{"id": 6, "title": "Breaking 2-Cores for Invertible Bloom Lookup Tables by Structure Prediction", "authors": ["Vojtěch Gaďurek", "Pavel Veselý"]}
+{"id": 7, "title": "BuffCut: Prioritized Buffered Streaming Graph Partitioning", "authors": ["Adil Chhabra", "Christian Schulz", "Marcelo Fonseca Faraj", "Linus Baumgärtner"], "arxiv": "2602.21248", "code": "https://github.com/KaHIP/HeiStream"}
+{"id": 8, "title": "Compressing Highly Repetitive Binary Trees with an Application to Range Minimum Queries", "authors": ["Gabriel Carmona", "Filippo Lari"]}
+{"id": 9, "title": "Computational Generation of Substrate-Specific Molecular Cages", "authors": ["Noé Demange", "Yann Strozecki", "Sandrine Vial"], "arxiv": "2604.11060", "code": "https://github.com/NoeDemange/MolecularCagesGeneration"}
+{"id": 10, "title": "Cycle Basis Algorithms for Reducing Maximum Edge Participation", "authors": ["Fan Wang", "Sandy Irani"], "arxiv": "2511.10961", "code": "https://github.com/FanWang000/Cycle_basis_algorithms_public"}
+{"id": 11, "title": "DeltaSort: Incremental sorting of arrays with known updates", "authors": ["Shubham Dwivedi"]}
+{"id": 12, "title": "Different Scales of Randomness: Empirical Mixing Times of the Edge Switching and Curveball", "authors": ["Ryan O Connor", "Deepak Ajwani", "Melvin Kallmayer", "Alexander Leonhardt", "Ulrich Meyer", "Manuel Penschuck"]}
+{"id": 13, "title": "Efficient Large-Scale Text Precompression via Approximate LZ77 Parsings", "authors": ["Patrick Dinklage"]}
+{"id": 14, "title": "Engineering Algorithms for Dynamic Greedy Set Cover", "authors": ["Amitai Uzrad"], "arxiv": "2604.03152", "code": "https://github.com/AmitaiUzrad/DynamicSetCover"}
+{"id": 15, "title": "Engineering Fully Dynamic Convex Hulls", "authors": ["Ivor van der Hoog", "Henrik Reinstädtler", "Eva Rotenberg"], "arxiv": "2604.00271", "code": "https://github.com/henrixapp/PracticalConvexHulles"}
+{"id": 16, "title": "Engineering Learned Heuristics to Improve Clustering for Multilevel Graph Partitioning", "authors": ["Simeon Schrape", "Nikolai Maas", "Kenneth Langedal", "Daniel Seemaier"]}
+{"id": 17, "title": "Exploiting Multi-Core Parallelism in Blockchain Validation and Construction", "authors": ["Arivarasan Karmegam", "Lucianna Kiffer", "Antonio Fernández Anta"], "arxiv": "2602.03444"}
+{"id": 18, "title": "Fast Select Queries using Hybrid Bitvectors", "authors": ["Eric Chiu", "Dominik Kempa"]}
+{"id": 19, "title": "From Relative Compression to Hierarchical Compression", "authors": ["Philip Bille", "Inge Li Gørtz", "Máximo Pérez López"]}
+{"id": 20, "title": "General Multiplicative Spanners in Practice", "authors": ["Fritz Bökler", "Markus Chimani", "Henning Jasper"]}
+{"id": 21, "title": "Global Polyline Simplification under the Frechet Distance: Theory and Practice", "authors": ["Christian Abdullahad", "Sabine Storandt"]}
+{"id": 22, "title": "Integer programming models for the median of a 0-1 string set under Levenshtein distance", "authors": ["Claudio Arbib", "Andrea D'Ascenzo", "Oya Ekin Karasan", "Andrea Pizzuti"]}
+{"id": 23, "title": "k-Hole Separation in PEO‑Based ILP Treewidth Formulation", "authors": ["Andrea D'Ascenzo"]}
+{"id": 24, "title": "Practical Parallel Block Tree Construction", "authors": ["Robert Clausecker", "Florian Kurpicz", "Etienne Palanga"], "arxiv": "2512.23314", "code": "https://github.com/pasta-toolbox/block_tree"}
+{"id": 25, "title": "QuadRank: Engineering a High Throughput Rank", "authors": ["Ragnar Groot Koerkamp"], "arxiv": "2602.04103", "code": "https://github.com/RagnarGrootKoerkamp/quadrank"}
+{"id": 26, "title": "The dual-path fixing strategy and its application to the set-covering problem", "authors": ["Marcia Fampa", "Jon Lee", "Paulo Michel F. Yamagishi"], "arxiv": "2601.20977"}
+{"id": 27, "title": "Wavelet Forests Revisited", "authors": ["Eric Chiu", "Dominik Kempa"], "arxiv": "2604.11338", "code": "https://github.com/echiu12/wavelet-forest"}
+{"id": 28, "title": "ZOR filters: fast and smaller than fuse filters", "authors": ["Antoine Limasset"], "arxiv": "2602.03525", "code": "https://github.com/Malfoy/ZOR"}

@@ -4,24 +4,128 @@ import fs from 'node:fs/promises'
 interface Props {
   id: number
   time: string
-  index: number
+  dateKey: string
 }
 
-const { id, time, index } = Astro.props
+const { id, time, dateKey } = Astro.props
+
+const MINS_PER_TALK = 25
+
+function addMinutes(hhmm: string, mins: number): string {
+  const [h, m] = hhmm.split(':').map(Number)
+  const total = h * 60 + m + mins
+  return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`
+}
 
 const content = await fs.readFile('./src/data/accepted.jsonl', 'utf-8')
 const papers = content.trim().split('\n').map((line) => JSON.parse(line))
 const paper = papers.find((p: { id: number }) => p.id === id)
+
+const startISO = `${dateKey}T${time}+02:00`
+const endISO = `${dateKey}T${addMinutes(time, MINS_PER_TALK)}+02:00`
 ---
 
 {
   paper && (
-    <div class={`flex items-baseline gap-3 py-2 ${index % 2 === 0 ? 'bg-gray-50 dark:bg-white/5' : ''}`}>
-      <span class="shrink-0 w-14 text-sm tabular-nums opacity-60 whitespace-nowrap text-right">{time}</span>
+    <div
+      data-start={startISO}
+      data-end={endISO}
+      class="flex items-baseline gap-3 py-1"
+    >
+      <span class="shrink-0 w-14 text-xs tabular-nums opacity-60 whitespace-nowrap text-right relative">
+        {time}
+        <span class="live-dot" aria-hidden="true" />
+      </span>
       <div>
-        <p class="text-sm font-medium leading-snug m-0">{paper.title}</p>
-        <p class="text-xs opacity-60 mt-0.5 leading-snug m-0">{paper.authors.join(', ')}</p>
+        <p class="text-sm font-medium leading-snug m-0">
+          {paper.title}
+          {paper.arxiv && (
+            <a href={`https://arxiv.org/abs/${paper.arxiv}`} target="_blank" rel="noopener noreferrer"
+               class="ml-1.5 text-xs font-normal opacity-35 hover:opacity-65 transition-opacity" style="color:inherit;text-decoration:none">arXiv</a>
+          )}
+          {paper.code && (
+            <a href={Array.isArray(paper.code) ? paper.code[0] : paper.code} target="_blank" rel="noopener noreferrer"
+               class="ml-1.5 text-xs font-normal opacity-35 hover:opacity-65 transition-opacity" style="color:inherit;text-decoration:none">code</a>
+          )}
+        </p>
+        <p class="text-xs opacity-70 mt-0.5 leading-snug m-0">{paper.authors.join(', ')}</p>
       </div>
     </div>
   )
 }
+
+<script>
+  function updateLive() {
+    const now = new Date()
+    document.querySelectorAll<HTMLElement>('[data-start][data-end]').forEach(row => {
+      const start = new Date(row.dataset.start!)
+      const end = new Date(row.dataset.end!)
+      const active = now >= start && now < end
+      row.classList.toggle('is-live', active)
+      if (active) row.setAttribute('aria-current', 'true')
+      else row.removeAttribute('aria-current')
+      const dot = row.querySelector('.live-dot')
+      if (dot) dot.classList.toggle('live-dot--active', active)
+    })
+  }
+  let timer: ReturnType<typeof setTimeout> | undefined
+  function scheduleNext() {
+    clearTimeout(timer)
+    const now = new Date()
+    const next = Array.from(document.querySelectorAll<HTMLElement>('[data-start][data-end]'))
+      .flatMap(row => [new Date(row.dataset.start!), new Date(row.dataset.end!)])
+      .filter(t => t.getTime() > now.getTime())
+      .sort((a, b) => a.getTime() - b.getTime())[0]
+    if (!next) return
+    const delay = Math.min(next.getTime() - now.getTime() + 50, 2_000_000_000)
+    timer = setTimeout(() => { updateLive(); scheduleNext() }, delay)
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') { updateLive(); scheduleNext() }
+  })
+
+  updateLive()
+  scheduleNext()
+</script>
+
+<style>
+  :global(.live-dot) {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary-400);
+    opacity: 0;
+    transition: opacity 0.6s;
+    pointer-events: none;
+  }
+
+  :global(.live-dot--active) {
+    opacity: 1;
+    animation: breathe 3s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.7; }
+    50%       { transform: translateY(-50%) scale(1.7); opacity: 1; }
+  }
+
+  :global(.is-live),
+  :global([data-start][data-end]:hover) {
+    background-color: color-mix(in oklab, var(--color-primary-400) 15%, transparent);
+  }
+
+  :global(.darkmode .is-live),
+  :global(.darkmode [data-start][data-end]:hover) {
+    background-color: color-mix(in oklab, var(--color-primary-300) 24%, transparent);
+  }
+
+  :global([data-start][data-end]:hover .live-dot) {
+    opacity: 1;
+    animation: breathe 3s ease-in-out infinite;
+  }
+</style>

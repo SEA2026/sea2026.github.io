@@ -1,0 +1,119 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import ScheduleTalk from '@components/ScheduleTalk.astro'
+
+const MINS_PER_TALK = 25
+
+function parseMinutes(hhmm: string): number {
+  const [h, m] = hhmm.split(':').map(Number)
+  return h * 60 + m
+}
+
+function addMinutes(hhmm: string, mins: number): string {
+  const total = parseMinutes(hhmm) + mins
+  const h = Math.floor(total / 60)
+  const m = total % 60
+  return `${h}:${String(m).padStart(2, '0')}`
+}
+
+const days = [
+  {
+    date: 'Monday, June 22, 2026',
+    slots: [
+      { time: '9:00–9:15', label: '🎉 Opening & Welcome', type: 'special' },
+      { time: '9:15–10:15', label: '🎤 Invited Talk 1', type: 'invited' },
+      { time: '10:15–10:45', label: '☕ Coffee break', type: 'break' },
+      { time: '10:45–12:25', label: 'Session 1', name: 'Optimization and network design', type: 'session', talks: [2, 3, 14, 26] },
+      { time: '12:30–14:00', label: '🍽️ Lunch', type: 'break' },
+      { time: '14:00–15:15', label: 'Session 2', name: 'Compression', type: 'session', talks: [8, 13, 19] },
+      { time: '15:15–15:45', label: '☕ Coffee break', type: 'break' },
+      { time: '15:45–17:00', label: 'Session 3', name: 'Practical and parallel algorithm engineering', type: 'session', talks: [11, 17, 24] },
+    ],
+  },
+  {
+    date: 'Tuesday, June 23, 2026',
+    slots: [
+      { time: '9:00–10:00', label: '🎤 Invited Talk 2', type: 'invited' },
+      { time: '10:00–10:30', label: '☕ Coffee break', type: 'break' },
+      { time: '10:30–12:10', label: 'Session 4', name: 'Geometry', type: 'session', talks: [15, 1, 21, 9] },
+      { time: '12:30–14:00', label: '🍽️ Lunch', type: 'break' },
+      { time: '14:00–15:40', label: 'Session 5', name: 'Data structures', type: 'session', talks: [5, 18, 25, 27] },
+      { time: '17:00–19:00', label: '🍷 Conference dinner', type: 'social' },
+      { time: '19:00', label: '🔥 Excursion to Sankt Hans', type: 'social' },
+    ],
+  },
+  {
+    date: 'Wednesday, June 24, 2026',
+    slots: [
+      { time: '9:00–10:00', label: '🎤 Invited Talk 3', type: 'invited' },
+      { time: '10:00–10:30', label: '☕ Coffee break', type: 'break' },
+      { time: '10:30–12:10', label: 'Session 6', name: 'Graph algorithms', type: 'session', talks: [7, 12, 16, 20] },
+      { time: '12:30–14:00', label: '🍽️ Lunch', type: 'break' },
+      { time: '14:00–15:15', label: 'Session 7', name: 'Integer programming and combinatorial optimization', type: 'session', talks: [4, 22, 23] },
+      { time: '15:15–15:45', label: '☕ Coffee break', type: 'break' },
+      { time: '15:45–17:00', label: 'Session 8', name: 'Hashing, filters, and combinatorial structures', type: 'session', talks: [6, 10, 28] },
+      { time: '17:00–18:00', label: '📋 SEA Business Meeting', type: 'special' },
+    ],
+  },
+]
+
+for (const day of days) {
+  for (const slot of day.slots) {
+    if ('talks' in slot) {
+      const [startStr, endStr] = slot.time.split('–')
+      const duration = parseMinutes(endStr) - parseMinutes(startStr)
+      const expected = slot.talks.length * MINS_PER_TALK
+      if (duration !== expected) {
+        throw new Error(
+          `Schedule mismatch — ${slot.label} (${day.date}): ` +
+          `${duration} min slot ≠ ${slot.talks.length} talks × ${MINS_PER_TALK} min = ${expected} min`
+        )
+      }
+    }
+  }
+}
+
+const labelClass: Record<string, string> = {
+  invited: 'font-semibold text-[color:var(--link-color)]',
+  special: 'font-semibold',
+  social: 'italic',
+  break: '',
+  session: '',
+}
+---
+
+<DefaultLayout title="Schedule">
+  <section class="mb-20">
+    <div class="container flex flex-col gap-8">
+      <h1>Schedule</h1>
+      <p class="text-muted italic">The schedule is preliminary and subject to change.</p>
+
+      {days.map((day) => (
+        <div class="flex flex-col gap-0">
+          <h2 class="text-lg font-bold border-b-2 border-gray-300 dark:border-gray-600 pb-1 mb-1">{day.date}</h2>
+
+          {day.slots.map((slot) =>
+            'talks' in slot ? (
+              <div class="px-2 py-2">
+                <div class="flex items-baseline gap-3 mb-1">
+                  <span class="shrink-0 text-sm tabular-nums opacity-60 whitespace-nowrap">{slot.label}</span>
+                  <span class="text-sm font-semibold">{slot.name}</span>
+                </div>
+                {slot.talks.map((id, i) => {
+                  const start = addMinutes(slot.time.split('–')[0], i * MINS_PER_TALK)
+                  const end = addMinutes(slot.time.split('–')[0], (i + 1) * MINS_PER_TALK)
+                  return <ScheduleTalk id={id} time={`${start}–${end}`} />
+                })}
+              </div>
+            ) : (
+              <div class="flex items-baseline gap-3 px-2 py-1.5 rounded">
+                <span class="shrink-0 text-sm tabular-nums opacity-60 whitespace-nowrap">{slot.time}</span>
+                <span class={`text-sm ${labelClass[slot.type] ?? ''}`}>{slot.label}</span>
+              </div>
+            )
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+</DefaultLayout>

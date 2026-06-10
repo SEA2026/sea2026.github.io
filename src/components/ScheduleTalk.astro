@@ -1,0 +1,26 @@
+---
+import fs from 'node:fs/promises'
+
+interface Props {
+  id: number
+  time: string
+}
+
+const { id, time } = Astro.props
+
+const content = await fs.readFile('./src/data/accepted.jsonl', 'utf-8')
+const papers = content.trim().split('\n').map((line) => JSON.parse(line))
+const paper = papers.find((p: { id: number }) => p.id === id)
+---
+
+{
+  paper && (
+    <div class="flex items-baseline gap-3 border-t border-gray-200 dark:border-gray-700 py-1.5">
+      <span class="shrink-0 text-sm tabular-nums opacity-60 whitespace-nowrap">{time}</span>
+      <div>
+        <p class="text-sm font-medium leading-snug m-0">{paper.title}</p>
+        <p class="text-xs opacity-60 mt-0.5 leading-snug m-0">{paper.authors.join(', ')}</p>
+      </div>
+    </div>
+  )
+}

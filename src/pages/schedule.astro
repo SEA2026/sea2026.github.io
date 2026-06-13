@@ -22,7 +22,7 @@ const days = [
     dateKey: '2026-06-22',
     slots: [
       { time: '09:00–09:15', label: 'Opening & Welcome 🎉', type: 'special' },
-      { time: '09:15–10:15', label: 'Invited Talk 1', type: 'invited' },
+      { time: '09:15–10:15', label: 'Invited Talk 1', speaker: 'Charalampos E. Tsourakakis', speakerHref: '/speakers#speaker-charalampos-e-tsourakakis', subtitle: 'Algorithmic Primitives for Finding Dense Structures in Rich Graph Data', type: 'invited' },
       { time: '10:15–10:45', label: 'Coffee break ☕', type: 'break' },
       { time: '10:45–12:25', label: 'Session 1', name: 'Optimization and network design', type: 'session', talks: [2, 3, 14, 26] },
       { time: '12:30–14:00', label: 'Lunch 🍽️', type: 'break' },
@@ -35,7 +35,7 @@ const days = [
     date: 'Tuesday, June 23, 2026',
     dateKey: '2026-06-23',
     slots: [
-      { time: '09:00–10:00', label: 'Invited Talk 2', type: 'invited' },
+      { time: '09:00–10:00', label: 'Invited Talk 2', speaker: 'Inge Li Gørtz', speakerHref: '/speakers#speaker-inge-li-gortz', subtitle: 'Locality Sensitive Hashing and Compressed Computation', type: 'invited' },
       { time: '10:00–10:30', label: 'Coffee break ☕', type: 'break' },
       { time: '10:30–12:10', label: 'Session 4', name: 'Geometry', type: 'session', talks: [15, 1, 21, 9] },
       { time: '12:30–14:00', label: 'Lunch 🍽️', type: 'break' },
@@ -139,7 +139,7 @@ const rowBorderClass: Record<string, string> = {}
                     <p class="text-sm font-medium mt-0.5 m-0 leading-snug">
                       {slot.subtitle}
                       {'speakerHref' in slot && slot.speakerHref && (
-                        <> · <a href={slot.speakerHref} class="ml-0.5 text-xs font-normal opacity-35 hover:opacity-65 transition-opacity whitespace-nowrap" style="color:inherit;text-decoration:none">[more]</a></>
+                        <> · <a href={slot.speakerHref} data-astro-reload class="ml-0.5 text-xs font-normal opacity-35 hover:opacity-65 transition-opacity whitespace-nowrap" style="color:inherit;text-decoration:none">[more]</a></>
                       )}
                     </p>
                   )}

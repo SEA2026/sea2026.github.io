@@ -1,17 +1,22 @@
-# Sebastian Wild
+# Charalampos E. Tsourakakis
 
-Affiliation: Philipps University of Marburg · University of Liverpool
+Affiliation: University of Crete
 
-Bio: Sebastian Wild leads the Algorithms Group in the Department of Mathematics and Computer Science at Philipps University of Marburg and is Senior Lecturer at the University of Liverpool, UK.  His research focuses on memory-efficient data structures and algorithm engineering.  He is particularly well known for his work on practical sorting algorithms such as Powersort, which is used to sort lists in Python.  Before coming to Marburg, Sebastian was a full-time at the University of Liverpool, UK, and prior to that, a postdoc at the University of Waterloo, Canada. His doctoral thesis on the analysis of multiway quicksort at the TU Kaiserslautern was awarded the GI Dissertation Prize.
+Bio: Charalampos (Babis) Tsourakakis is an Associate Professor at the University of Crete and a researcher at the Foundation for Research and Technology – Hellas (FORTH). He earned his Ph.D. from the Algorithms, Combinatorics, and Optimization (ACO) program at Carnegie Mellon University, where he also received an M.Sc. from the Machine Learning Department. He subsequently held postdoctoral positions at Harvard and Brown Universities. He holds a Diploma in Electrical and Computer Engineering from the National Technical University of Athens.
 
-Talk: Adaptive Sorting and Searching from Theory to Practice
+Before joining the University of Crete, he was a faculty member at Boston University and a research affiliate at Harvard University. He has also held research positions at Google Research, Meta/Facebook Research, and RelationalAI.
 
-Abstract: Adaptive algorithms try to realize cost savings when an input is “easier” than a typical one, while retaining the same worst-case guarantees when it is not.  We will look at several examples of adaptive methods in sorting, selecting, and searching and how they avoid experiencing the worst-case performance for all inputs.
-The first example starts with Lazy Search Trees, which smoothly interpolate between binary search trees and efficient priority queues.  While originally motivated from theoretical data-structure questions, they recently inspired Lazy Partition Heaps, arguably one of the simplest efficient priority queues to teach and with practical potential.
+He has received the IEEE ICDM Test of Time Award and the IEEE ICDM Best Paper Award, and has delivered three tutorials at the ACM SIGKDD Conference on Knowledge Discovery and Data Mining. His research focuses on the design of scalable algorithms and machine learning methods for analyzing large-scale datasets, with an emphasis on knowledge graphs and related applications.
 
-The second case study revisits the turbulent past of Timsort, the run-adaptive mergesort variant used in (the reference implementations of) Python and Java and many other software frameworks, and how Powersort replaced it (in CPython, PyPy, and numpy).  The Powersort merge policy finds nearly optimal merging orders with negligible overhead using a very transparent mechanism, which turned out fruitful for follow-up refinements, such as a recent memory-efficient implementation.
+Talk: Algorithmic Primitives for Finding Dense Structures in Rich Graph Data
 
-Picture: ![alt text](../assets/images/speaker_sebastian.jpg)
+Abstract: 
+
+The densest subgraph problem is a graph-mining primitive that is both theoretically elegant and practically useful: it is polynomial-time solvable, admits fast greedy approximations, and appears in applications from biology and social networks to fraud detection. But real data quickly exposes a limitation of the classical objective. The most useful subgraph is often not simply the one with maximum average degree. It may need to be near-clique-like, statistically anomalous, or aligned with external side information.
+
+In this talk, I will present a selection of results from a decade of work on dense subgraph discovery, spanning classical formulations, scalable algorithms, and application-driven extensions. Specifically, I will discuss higher-order extensions for near-clique detection, flow-free algorithms for fast dense subgraph extraction, streaming and sampling methods for scalability, and constrained formulations that incorporate real-world requirements such as diversity, risk aversion, exclusion, financial anomaly signals, and opinion information.
+
+Picture: ![alt text](../assets/images/speaker_babis.jpg)
 
 # Inge Li Gørtz
 
@@ -37,22 +42,17 @@ Based on joint work with Philip Bille, Max Rishøj Pedersen, Máximo Pérez Lóp
 
 Picture: ![alt text](../assets/images/speaker_inge.jpeg)
 
-# Charalampos E. Tsourakakis
+# Sebastian Wild
 
-Affiliation: University of Crete
+Affiliation: Philipps University of Marburg · University of Liverpool
 
-Bio: Charalampos (Babis) Tsourakakis is an Associate Professor at the University of Crete and a researcher at the Foundation for Research and Technology – Hellas (FORTH). He earned his Ph.D. from the Algorithms, Combinatorics, and Optimization (ACO) program at Carnegie Mellon University, where he also received an M.Sc. from the Machine Learning Department. He subsequently held postdoctoral positions at Harvard and Brown Universities. He holds a Diploma in Electrical and Computer Engineering from the National Technical University of Athens.
+Bio: Sebastian Wild leads the Algorithms Group in the Department of Mathematics and Computer Science at Philipps University of Marburg and is Senior Lecturer at the University of Liverpool, UK.  His research focuses on memory-efficient data structures and algorithm engineering.  He is particularly well known for his work on practical sorting algorithms such as Powersort, which is used to sort lists in Python.  Before coming to Marburg, Sebastian was a full-time at the University of Liverpool, UK, and prior to that, a postdoc at the University of Waterloo, Canada. His doctoral thesis on the analysis of multiway quicksort at the TU Kaiserslautern was awarded the GI Dissertation Prize.
 
-Before joining the University of Crete, he was a faculty member at Boston University and a research affiliate at Harvard University. He has also held research positions at Google Research, Meta/Facebook Research, and RelationalAI.
+Talk: Adaptive Sorting and Searching from Theory to Practice
 
-He has received the IEEE ICDM Test of Time Award and the IEEE ICDM Best Paper Award, and has delivered three tutorials at the ACM SIGKDD Conference on Knowledge Discovery and Data Mining. His research focuses on the design of scalable algorithms and machine learning methods for analyzing large-scale datasets, with an emphasis on knowledge graphs and related applications.
+Abstract: Adaptive algorithms try to realize cost savings when an input is "easier" than a typical one, while retaining the same worst-case guarantees when it is not.  We will look at several examples of adaptive methods in sorting, selecting, and searching and how they avoid experiencing the worst-case performance for all inputs.
+The first example starts with Lazy Search Trees, which smoothly interpolate between binary search trees and efficient priority queues.  While originally motivated from theoretical data-structure questions, they recently inspired Lazy Partition Heaps, arguably one of the simplest efficient priority queues to teach and with practical potential.
 
-Talk: Algorithmic Primitives for Finding Dense Structures in Rich Graph Data
+The second case study revisits the turbulent past of Timsort, the run-adaptive mergesort variant used in (the reference implementations of) Python and Java and many other software frameworks, and how Powersort replaced it (in CPython, PyPy, and numpy).  The Powersort merge policy finds nearly optimal merging orders with negligible overhead using a very transparent mechanism, which turned out fruitful for follow-up refinements, such as a recent memory-efficient implementation.
 
-Abstract: 
-
-The densest subgraph problem is a graph-mining primitive that is both theoretically elegant and practically useful: it is polynomial-time solvable, admits fast greedy approximations, and appears in applications from biology and social networks to fraud detection. But real data quickly exposes a limitation of the classical objective. The most useful subgraph is often not simply the one with maximum average degree. It may need to be near-clique-like, statistically anomalous, or aligned with external side information.
-
-In this talk, I will present a selection of results from a decade of work on dense subgraph discovery, spanning classical formulations, scalable algorithms, and application-driven extensions. Specifically, I will discuss higher-order extensions for near-clique detection, flow-free algorithms for fast dense subgraph extraction, streaming and sampling methods for scalability, and constrained formulations that incorporate real-world requirements such as diversity, risk aversion, exclusion, financial anomaly signals, and opinion information.
-
-Picture: ![alt text](../assets/images/speaker_babis.jpg)
+Picture: ![alt text](../assets/images/speaker_sebastian.jpg)

@@ -14,6 +14,10 @@ const papers = content
     <div class="container flex flex-col gap-4">
       <h1>Accepted papers</h1>
 
+      <p>
+        Proceedings published as <a href="https://www.dagstuhl.de/dagpub/978-3-95977-422-2" target="_blank" rel="noopener noreferrer">LIPIcs volume 371</a>.
+      </p>
+
       <div class="overflow-x-auto">
         <table class="w-full border-collapse text-left">
           <thead>
@@ -29,11 +33,9 @@ const papers = content
                 <tr class="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
                   <td class="text-muted px-2 py-3 text-center">{i + 1}</td>
                   <td class="px-4 py-3 font-medium">
-                    {paper.title}
-                    {paper.arxiv && (
-                      <a href={`https://arxiv.org/abs/${paper.arxiv}`} target="_blank" rel="noopener noreferrer"
-                         class="ml-1.5 text-xs font-normal opacity-35 hover:opacity-65 transition-opacity" style="color:inherit;text-decoration:none">arXiv</a>
-                    )}
+                    {paper.doi ? (
+                      <a href={`https://doi.org/${paper.doi}`} target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">{paper.title}</a>
+                    ) : paper.title}
                     {paper.code && (
                       <a href={Array.isArray(paper.code) ? paper.code[0] : paper.code} target="_blank" rel="noopener noreferrer"
                          class="ml-1.5 text-xs font-normal opacity-35 hover:opacity-65 transition-opacity" style="color:inherit;text-decoration:none">code</a>

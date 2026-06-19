@@ -24,11 +24,11 @@ const days = [
       { time: '09:00–09:15', label: 'Opening & Welcome 🎉', type: 'special' },
       { time: '09:15–10:15', label: 'Invited Talk 1', speaker: 'Charalampos E. Tsourakakis', speakerHref: '/speakers#speaker-charalampos-e-tsourakakis', subtitle: 'Algorithmic Primitives for Finding Dense Structures in Rich Graph Data', type: 'invited' },
       { time: '10:15–10:45', label: 'Coffee break ☕', type: 'break' },
-      { time: '10:45–12:25', label: 'Session 1', name: 'Optimization and network design', type: 'session', talks: [2, 3, 14, 26] },
+       { time: '10:45–12:25', label: 'Session 1', name: 'Optimization and network design', type: 'session', talks: [2, 3, 14, 26], chair: 'TBD' },
       { time: '12:30–14:00', label: 'Lunch 🍽️', type: 'break' },
-      { time: '14:00–15:15', label: 'Session 2', name: 'Compression', type: 'session', talks: [8, 13, 19] },
+       { time: '14:00–15:15', label: 'Session 2', name: 'Compression', type: 'session', talks: [8, 13, 19], chair: 'Hideo Bannai' },
       { time: '15:15–15:45', label: 'Coffee break ☕', type: 'break' },
-      { time: '15:45–17:00', label: 'Session 3', name: 'Practical and parallel algorithm engineering', type: 'session', talks: [11, 17, 24] },
+      { time: '15:45–17:00', label: 'Session 3', name: 'Practical and parallel algorithm engineering', type: 'session', talks: [11, 17, 24], chair: 'TBD' },
     ],
   },
   {
@@ -37,9 +37,9 @@ const days = [
     slots: [
       { time: '09:00–10:00', label: 'Invited Talk 2', speaker: 'Inge Li Gørtz', speakerHref: '/speakers#speaker-inge-li-gortz', subtitle: 'Locality Sensitive Hashing and Compressed Computation', type: 'invited' },
       { time: '10:00–10:30', label: 'Coffee break ☕', type: 'break' },
-      { time: '10:30–12:10', label: 'Session 4', name: 'Geometry', type: 'session', talks: [15, 1, 21, 9] },
+      { time: '10:30–12:10', label: 'Session 4', name: 'Geometry', type: 'session', talks: [15, 1, 21, 9], chair: 'Sarita de Berg' },
       { time: '12:30–14:00', label: 'Lunch 🍽️', type: 'break' },
-      { time: '14:00–15:40', label: 'Session 5', name: 'Data structures', type: 'session', talks: [5, 18, 25, 27] },
+      { time: '14:00–15:40', label: 'Session 5', name: 'Data structures', type: 'session', talks: [5, 18, 25, 27], chair: 'Philip Bille' },
       { time: '17:00–19:00', label: 'Conference dinner 🍷 (at conference venue)', type: 'social' },
       { time: '19:00–23:00', label: 'Excursion to Sankt Hans 🔥', type: 'social' },
     ],
@@ -50,11 +50,11 @@ const days = [
     slots: [
       { time: '08:45–09:45', label: 'Invited Talk 3', speaker: 'Sebastian Wild', speakerHref: '/speakers#speaker-sebastian-wild', subtitle: 'Adaptive Sorting and Searching from Theory to Practice', type: 'invited' },
       { time: '09:45–10:15', label: 'Coffee break ☕', type: 'break' },
-      { time: '10:15–11:30', label: 'Session 6', name: 'Integer programming and combinatorial optimization', type: 'session', talks: [4, 22, 23] },
+      { time: '10:15–11:30', label: 'Session 6', name: 'Integer programming and combinatorial optimization', type: 'session', talks: [4, 22, 23], chair: 'Jon Lee' },
       { time: '11:30–13:00', label: 'Lunch 🍽️', type: 'break' },
-      { time: '13:00–14:40', label: 'Session 7', name: 'Graph algorithms', type: 'session', talks: [7, 12, 16, 20] },
+      { time: '13:00–14:40', label: 'Session 7', name: 'Graph algorithms', type: 'session', talks: [7, 12, 16, 20], chair: 'Ivor van der Hoog' },
       { time: '14:40–15:10', label: 'Coffee break ☕', type: 'break' },
-      { time: '15:10–16:25', label: 'Session 8', name: 'Hashing, filters, and combinatorial structures', type: 'session', talks: [6, 10, 28] },
+      { time: '15:10–16:25', label: 'Session 8', name: 'Hashing, filters, and combinatorial structures', type: 'session', talks: [6, 10, 28], chair: 'Manuel Penschuk' },
       { time: '16:30–17:30', label: 'SEA Business Meeting 📋', type: 'special' },
     ],
   },
@@ -112,9 +112,15 @@ const rowBorderClass: Record<string, string> = {}
             'talks' in slot ? (
               <div class="rounded">
                 <div class="flex items-baseline gap-3 mb-1">
-                  <span class="shrink-0 w-14" />
-                  <span class="text-base font-bold"><span class="bg-[var(--color-primary-100)] dark:bg-[var(--color-primary-400)]/40 rounded px-1">{slot.label}</span><span class="font-medium"> · {slot.name}</span></span>
-                </div>
+                   <span class="shrink-0 w-14" />
+                   <span class="text-base font-bold"><span class="bg-[var(--color-primary-100)] dark:bg-[var(--color-primary-400)]/40 rounded px-1">{slot.label}</span><span class="font-medium"> · {slot.name}</span></span>
+                 </div>
+                 {'chair' in slot && slot.chair && (
+                   <div class="flex items-baseline gap-3 mb-2 ml-3.5 text-sm opacity-75">
+                     <span class="shrink-0" />
+                     <span>Chair: {slot.chair}</span>
+                   </div>
+                 )}
                 {slot.talks.map((id, i) => {
                   const start = addMinutes(slot.time.split('–')[0], i * MINS_PER_TALK)
                   return <ScheduleTalk id={id} time={start} dateKey={day.dateKey} />

@@ -55,10 +55,19 @@ const endISO = `${dateKey}T${addMinutes(time, MINS_PER_TALK)}+02:00`
 <script>
   function updateLive() {
     const now = new Date()
-    document.querySelectorAll<HTMLElement>('[data-start][data-end]').forEach(row => {
+    const rows = Array.from(document.querySelectorAll<HTMLElement>('[data-start][data-end]'))
+    let activeRow = rows.find(row => {
       const start = new Date(row.dataset.start!)
       const end = new Date(row.dataset.end!)
-      const active = now >= start && now < end
+      return now >= start && now < end
+    })
+    if (!activeRow) {
+      activeRow = rows
+        .filter(row => new Date(row.dataset.start!).getTime() > now.getTime())
+        .sort((a, b) => new Date(a.dataset.start!).getTime() - new Date(b.dataset.start!).getTime())[0]
+    }
+    rows.forEach(row => {
+      const active = row === activeRow
       row.classList.toggle('is-live', active)
       if (active) row.setAttribute('aria-current', 'true')
       else row.removeAttribute('aria-current')

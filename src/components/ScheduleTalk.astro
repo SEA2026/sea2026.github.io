@@ -121,18 +121,11 @@ const endISO = `${dateKey}T${addMinutes(time, MINS_PER_TALK)}+02:00`
     50%       { transform: translateY(-50%) scale(1.7); opacity: 1; }
   }
 
-  :global(.is-live),
-  :global([data-start][data-end]:hover) {
+  :global(.is-live) {
     background-color: color-mix(in oklab, var(--color-primary-400) 15%, transparent);
   }
 
-  :global(.darkmode .is-live),
-  :global(.darkmode [data-start][data-end]:hover) {
+  :global(.darkmode .is-live) {
     background-color: color-mix(in oklab, var(--color-primary-300) 24%, transparent);
-  }
-
-  :global([data-start][data-end]:hover .live-dot) {
-    opacity: 1;
-    animation: breathe 3s ease-in-out infinite;
   }
 </style>
